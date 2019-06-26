@@ -8,7 +8,7 @@
 
 程式碼：[https://github.com/summer10920/skill-edu\_107300\_fast/](https://github.com/summer10920/skill-edu_107300_fast/)
 
-網站範例：[http://summer10920.myqnapcloud.com/ClassBWebDesignFast/](http://summer10920.myqnapcloud.com/ClassBWebDesign/)
+網站範例：[http://b17300.lokiui.com/](http://b17300.lokiui.com/)
 
 ---
 
