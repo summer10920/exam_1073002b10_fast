@@ -1,6 +1,6 @@
 <form action="api.php?do=order" method="post">
 <?php
-$re=select("t8_book","movie='".$_POST['mm']."' and date='".$_POST['dd']."' and time=".$_POST['tt']);
+$re=select("q3t8_book","movie='".$_POST['mm']."' and date='".$_POST['dd']."' and time=".$_POST['tt']);
 $set=array();
 foreach($re as $row) $set=array_merge($set,unserialize($row['seat']));//將所有該時段的多筆座位陣列都倒入到一個新陣列
 
@@ -12,7 +12,7 @@ for($i=1;$i<21;$i++){
     ';
     if($i%5==0) echo '<br>';
 }
-$re=select("t7_movie","title='".$_POST['mm']."'");
+$re=select("q3t7_movie","title='".$_POST['mm']."'");
 $ro=$re[0];
 ?>
 <hr>

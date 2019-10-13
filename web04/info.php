@@ -1,10 +1,10 @@
 <?php
-$re=select("t5_product","id=".$_GET['id']);
+$re=select("q4t5_product","id=".$_GET['id']);
 $x=$re[0];
 $title="";
-$re=select("t4_class","id=".$x['fa']);
+$re=select("q4t4_class","id=".$x['fa']);
 $title=$re[0]['text'];
-$re=select("t4_class","id=".$x['son']);
+$re=select("q4t4_class","id=".$x['son']);
 $title.=">".$re[0]['text'];
 
 ?>

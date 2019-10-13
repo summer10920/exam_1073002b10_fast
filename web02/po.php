@@ -21,11 +21,11 @@ if ($_GET['cls'] == 4) $title = "慢性病防治";
       <fieldset>
         <legend>文章列表</legend>
         <?php
-        if (empty($_GET['id'])) {
-          $re = select("t7_blog", "cls=" . $_GET['cls']);
+        if (empty($_GET['id'])) { //這裡的畫面為文章標題清單，還沒點選文章前
+          $re = select("q2t7_blog", "cls=" . $_GET['cls']);
           foreach ($re as $ro) echo '<a href="?do=po&cls=' . $_GET['cls'] . '&id=' . $ro['id'] . '">' . $ro['title'] . '</a><br>';
-        } else {
-          $re = select("t7_blog", "id=" . $_GET['id']);
+        } else { //這裡的畫面為已指定某id之文章，所以帶出該文章之細節
+          $re = select("q2t7_blog", "id=" . $_GET['id']);
           echo $re[0]['text'];
         }
         ?>

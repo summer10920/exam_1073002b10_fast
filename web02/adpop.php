@@ -10,7 +10,7 @@
 <?php
     $nw=(empty($_GET['page']))?1:$_GET['page'];
     $begin=($nw-1)*3;
-    $re=select("t7_blog","1 limit ".$begin.",3");
+    $re=select("q2t7_blog","1 limit ".$begin.",3");
     foreach ($re as $ro){
 ?>
 
@@ -28,7 +28,7 @@
 ?>
 </table>
 <?php
-$re=page("t7_blog",1,3,$nw);
+$re=page("q2t7_blog",1,3,$nw);
 foreach ($re as $key => $value) {
     if($nw==$key) echo '<a style="font-size:2em" href="?do=adpop&page='.$value.'">'.$key.'</a>';
     else echo '<a href="?do=adpop&page='.$value.'">'.$key.'</a>';

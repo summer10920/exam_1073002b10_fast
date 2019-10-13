@@ -4,7 +4,7 @@
 <form action="api.php?do=vvmdy" method="post" class="ct">
 <table width=100%>
 <?php
-$re=select("t7_movie","1 order by odr");
+$re=select("q3t7_movie","1 order by odr");
 foreach ($re as $ro) {
 ?>
     <tr>

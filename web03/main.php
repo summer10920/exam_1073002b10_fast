@@ -9,7 +9,7 @@
       <ul class="controls" style="height:100px">
         <img src="img/left.jpg" style="padding:40px 0" onclick="pp(1)">
         <?php
-        $re = select("t5_img", "dpy=1 order by odr");
+        $re = select("q3t5_img", "dpy=1 order by odr");
         $num = count($re);
         $i = 0;
         foreach ($re as $ro) {
@@ -43,7 +43,7 @@
             txt = $("#ssaa" + id).attr("alt");
             //t5
             <?php
-            $re = select("t5_effect", 1);
+            $re = select("q3t5_effect", 1);
             $eft = $re[0]['once'];
             ?>
             switch (<?= $eft ?>) {
@@ -96,7 +96,7 @@
         <?php
         $nw = (empty($_GET['page'])) ? 1 : $_GET['page'];
         $ba = ($nw - 1) * 4;
-        $re = select("t7_movie", "'" . $minday . "'<=date and date<='" . $today . "' order by odr limit " . $ba . ",4");
+        $re = select("q3t7_movie", "'" . $minday . "'<=date and date<='" . $today . "' order by odr limit " . $ba . ",4");
         foreach ($re as $ro) {
           ?>
           <td width=210 style="float:left">
@@ -114,7 +114,7 @@
     </table>
     <div class="ct">
       <?php
-      $pg = page("t7_movie", "'" . $minday . "'<=date and date<='" . $today . "' order by odr", 4, $nw);
+      $pg = page("q3t7_movie", "'" . $minday . "'<=date and date<='" . $today . "' order by odr", 4, $nw);
       foreach ($pg as $key => $value) echo '<a href="?page=' . $value . '">' . $key . '</a>';
       ?>
     </div>

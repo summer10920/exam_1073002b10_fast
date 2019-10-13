@@ -1,5 +1,5 @@
 <?php
-$re=select("t8_book","id=".$_GET['id']);
+$re=select("q3t8_book","id=".$_GET['id']);
 $ro=$re[0];
 $seq=date("Ymd0000",strtotime($ro['buydate']))+$ro['id'];
 $ss=unserialize($ro['seat']);

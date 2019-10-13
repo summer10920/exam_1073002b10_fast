@@ -1,5 +1,5 @@
 <?php
-$re = select("t8_order", "id=" . $_GET['id']);
+$re = select("q4t8_order", "id=" . $_GET['id']);
 $ro = $re[0];
 $seq = date("Ymd000000", strtotime($ro['date'])) + $ro['id'];
 ?>
@@ -21,7 +21,7 @@ $seq = date("Ymd000000", strtotime($ro['date'])) + $ro['id'];
     <?php
     $ary = unserialize($ro['buy']);
     foreach ($ary as $key => $value) {
-        $re = select("t5_product", "id=" . $key);
+        $re = select("q4t5_product", "id=" . $key);
         $x = $re[0];
         ?>
         <tr bgcolor=#ffc>

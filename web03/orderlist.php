@@ -4,7 +4,7 @@
     <input type="radio" name="sw" value="2">電影名稱 
     <select name="movie">
     <?php
-    $re=select("t7_movie",1);
+    $re=select("q3t7_movie",1);
     foreach($re as $ro) echo '<option value="'.$ro['title'].'">'.$ro['title'].'</option>';
     ?>
     </select>
@@ -23,7 +23,7 @@
         <td>操作</td>
     </tr>
 <?php
-$re=select("t8_book","1 order by id desc");
+$re=select("q3t8_book","1 order by id desc");
 foreach ($re as $ro) {
     $seq=date("Ymd0000",strtotime($ro['buydate']))+$ro['id'];
     $ss=unserialize($ro['seat']);

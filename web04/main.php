@@ -3,7 +3,7 @@
 $who="";
 if(!empty($_GET['fa'])) $who.=" and fa=".$_GET['fa'];
 if(!empty($_GET['son'])) $who.=" and son=".$_GET['son'];
-$re=select("t5_product","dpy=1".$who);
+$re=select("q4t5_product","dpy=1".$who);
 foreach ($re as $ro) {
 ?>
     <tr>

@@ -2,7 +2,7 @@
 include "sql.php";
 if (empty($_SESSION['admin'])) plo("index.php?do=adlogin");
 $main=(empty($_GET['redo']))?"admain":$_GET['redo'];
-$re = select("t10_admin", "acc='" . $_SESSION['admin'] . "'");
+$re = select("q4t10_admin", "acc='" . $_SESSION['admin'] . "'");
 $access = unserialize($re[0]['access']);
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">

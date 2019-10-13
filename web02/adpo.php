@@ -8,7 +8,7 @@
         <td>刪除</td>
     </tr>
 <?php
-$re=select("t6_user",1);
+$re=select("q2t6_user",1);
 foreach ($re as $ro) {
 ?>
     <tr>

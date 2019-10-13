@@ -4,7 +4,7 @@
   <select name="fa" id="" onchange="getson()">
     <option value="">請選擇</option>
     <?php
-    $re = select("t4_class", "parent=0");
+    $re = select("q4t4_class", "parent=0");
     foreach ($re as $ro) echo '<option value="' . $ro['id'] . '">' . $ro['text'] . '</option>';
     ?>
   </select><br>

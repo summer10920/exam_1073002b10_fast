@@ -2,7 +2,7 @@
 include "sql.php";
 switch ($_GET['do']) {
   case 'adlogin':
-    $re = select("t10_admin", "acc='" . $_POST['acc'] . "' and pwd='" . $_POST['pwd'] . "'");
+    $re = select("q4t10_admin", "acc='" . $_POST['acc'] . "' and pwd='" . $_POST['pwd'] . "'");
     if ($re != null) {
       $_SESSION['admin'] = $_POST['acc'];
       plo("admin.php");
@@ -17,7 +17,7 @@ switch ($_GET['do']) {
     foreach ($_POST['cc'] as $key => $value) $ary[$key] = $value;
     $_POST['access'] = serialize($ary);
     unset($_POST['cc']);
-    insert($_POST, "t10_admin");
+    insert($_POST, "q4t10_admin");
     plo("admin.php");
     break;
   case 'admainmdy':
@@ -25,55 +25,55 @@ switch ($_GET['do']) {
     foreach ($_POST['cc'] as $key => $value) $ary[$key] = $value;
     $_POST['access'][$_GET['id']] = serialize($ary);
     unset($_POST['cc']);
-    update($_POST, "t10_admin");
+    update($_POST, "q4t10_admin");
     plo("admin.php");
     break;
   case 'admaindel':
     $post['del'][] = $_GET['id'];
-    delete($post, "t10_admin");
+    delete($post, "q4t10_admin");
     plo("admin.php");
     break;
   case 'clsadd':
-    insert($_POST, "t4_class");
+    insert($_POST, "q4t4_class");
     plo("admin.php?redo=th");
     break;
   case 'thmdy':
-    update($_POST, "t4_class");
+    update($_POST, "q4t4_class");
     plo("admin.php?redo=th");
     break;
   case 'thdel':
     $post['del'][] = $_GET['id'];
-    delete($post, "t4_class");
+    delete($post, "q4t4_class");
     plo("admin.php?redo=th");
     break;
   case 'getson':
-    $re = select("t4_class", "parent=" . $_POST['id']);
+    $re = select("q4t4_class", "parent=" . $_POST['id']);
     foreach ($re as $ro) echo '<option value="' . $ro['id'] . '">' . $ro['text'] . '</option>';
     break;
   case 'tpadd':
     $_POST['img'] = addfile($_FILES['img']);
-    insert($_POST, "t5_product");
+    insert($_POST, "q4t5_product");
     plo("admin.php?redo=tp");
     break;
   case 'tpmdy':
     $_POST['img'][$_GET['id']] = addfile($_FILES['img']);
     print_r($_POST);
-    update($_POST, "t5_product");
+    update($_POST, "q4t5_product");
     plo("admin.php?redo=tp");
     break;
   case 'tpon':
     $_POST['dpy'][$_GET['id']] = 1;
-    update($_POST, "t5_product");
+    update($_POST, "q4t5_product");
     plo("admin.php?redo=tp");
     break;
   case 'tpoff':
     $_POST['dpy'][$_GET['id']] = 0;
-    update($_POST, "t5_product");
+    update($_POST, "q4t5_product");
     plo("admin.php?redo=tp");
     break;
   case 'tpdel':
     $post['del'][] = $_GET['id'];
-    delete($post, "t5_product");
+    delete($post, "q4t5_product");
     plo("admin.php?redo=tp");
     break;
   case 'want':
@@ -82,17 +82,17 @@ switch ($_GET['do']) {
     else plo("index.php?do=buycart");
     break;
   case 'checkuser':
-    $re = select("t9_user", "acc='" . $_POST['id'] . "'");
+    $re = select("q4t9_user", "acc='" . $_POST['id'] . "'");
     if ($re != null) echo "帳號重複";
     else echo "可使用此帳號";
     break;
   case 'reg':
     $_POST['date'] = date("Y-m-d");
-    insert($_POST, "t9_user");
+    insert($_POST, "q4t9_user");
     plo("index.php?do=login");
     break;
   case 'login':
-    $re = select("t9_user", "acc='" . $_POST['acc'] . "' and pwd='" . $_POST['pwd'] . "'");
+    $re = select("q4t9_user", "acc='" . $_POST['acc'] . "' and pwd='" . $_POST['pwd'] . "'");
     if ($re != null) {
       $_SESSION['user'] = $_POST['acc'];
       $_SESSION['id'] = $re[0]['id'];
@@ -104,7 +104,7 @@ switch ($_GET['do']) {
     plo("index.php");
     break;
   case 'pay':
-    $re = select("t9_user", "id=" . $_SESSION['id']);
+    $re = select("q4t9_user", "id=" . $_SESSION['id']);
     $x = $re[0];
     $_POST['user'] = $x['acc'];
     $_POST['name'] = $x['name'];
@@ -115,25 +115,25 @@ switch ($_GET['do']) {
     $_POST['date'] = date("Y-m-d");
     $_POST['buy'] = serialize($_SESSION['buy']);
     unset($_SESSION['buy']);
-    insert($_POST, "t8_order");
+    insert($_POST, "q4t8_order");
     echo "<script>alert('訂購成功感謝您的參與');" . jlo("index.php") . "</script>";
     break;
   case 'odrdel':
     $post['del'][] = $_GET['id'];
-    delete($post, "t8_order");
+    delete($post, "q4t8_order");
     plo("admin.php?redo=order");
     break;
   case 'memmdy':
-    update($_POST, "t9_user");
+    update($_POST, "q4t9_user");
     plo("admin.php?redo=mem");
     break;
   case 'memdel':
     $post['del'][] = $_GET['id'];
-    delete($post, "t9_user");
+    delete($post, "q4t9_user");
     plo("admin.php?redo=mem");
     break;
   case 'bot':
-    update($_POST, "t11_footer");
+    update($_POST, "q4t11_footer");
     plo("admin.php?redo=bot");
     break;
 }

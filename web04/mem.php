@@ -7,7 +7,7 @@
     <td>操作</td>
   </tr>
   <?php
-  $re = select("t9_user", 1);
+  $re = select("q4t9_user", 1);
   foreach ($re as $ro) {
     ?>
     <tr bgcolor=#ffc>

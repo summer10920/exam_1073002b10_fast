@@ -11,7 +11,7 @@
     <td>此帳號為最高權限</td>
   </tr>
   <?php
-  $re = select("t10_admin", "id!=1");
+  $re = select("q4t10_admin", "id!=1");
   foreach ($re as $ro) {
     ?>
     <tr>

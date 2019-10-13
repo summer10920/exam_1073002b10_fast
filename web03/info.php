@@ -1,5 +1,5 @@
 <?php
-$re = select("t7_movie", "id=" . $_GET['id']);
+$re = select("q3t7_movie", "id=" . $_GET['id']);
 $ro = $re[0];
 ?>
 <div style="background:#FFF; width:100%; color:#333; text-align:left">

@@ -10,7 +10,7 @@
   <p>新增中類
     <select name="parent" id="">
       <?php
-      $re = select("t4_class", "parent=0");
+      $re = select("q4t4_class", "parent=0");
       foreach ($re as $ro) echo '<option value="' . $ro['id'] . '">' . $ro['text'] . '</option>';
       ?>
     </select>
@@ -30,7 +30,7 @@
       </td>
     </tr>
     <?php
-    $re2 = select("t4_class", "parent=" . $ro['id']);
+    $re2 = select("q4t4_class", "parent=" . $ro['id']);
     foreach ($re2 as $ro2) {
       ?>
       <tr bgcolor=#ffe>

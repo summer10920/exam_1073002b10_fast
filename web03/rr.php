@@ -2,7 +2,7 @@
 <form action="api.php?do=rrmdy" method="post" class="ct">
 <select name="eft">
 <?php
-$re=select("t5_effect",1);
+$re=select("q3t5_effect",1);
 $ro=$re[0];
 ?>
 <option value="1" <?=($ro['once']==1)?"selected":""?>>淡入</option>
@@ -18,7 +18,7 @@ $ro=$re[0];
         <td>操作</td>
     </tr>
 <?php
-$re=select("t5_img","1 order by odr");
+$re=select("q3t5_img","1 order by odr");
 foreach ($re as $ro) {
 ?>
     <tr>

@@ -9,7 +9,7 @@ switch ($sw) {
   <h3><?= $_GET['title'] ?></h3>
   <form action="api.php?do=vote" method="post">
     <?php
-    $re = select("t13_vote", "parent=" . $_GET['vote']);
+    $re = select("q2t13_vote", "parent=" . $_GET['vote']);
     foreach ($re as $ro) echo '<input type="radio" name="num+1" value="' . $ro['id'] . '">' . $ro['text'] . '<br>';
     ?>
     <input type="submit" value="我要投票">
@@ -20,7 +20,7 @@ case '2':
   ?>
   <h3><?= $_GET['title'] ?></h3>
   <?php
-  $re = select("t13_vote", "parent=" . $_GET['show']);
+  $re = select("q2t13_vote", "parent=" . $_GET['show']);
   $i = 1;
   foreach ($re as $ro) {
     $pse = ($_GET['total'] == 0) ? 0 : $ro['num'] / $_GET['total'] * 100;
@@ -44,10 +44,10 @@ default:
       <td>狀態</td>
     </tr>
     <?php
-    $re = select("t13_vote", "parent=0");
+    $re = select("q2t13_vote", "parent=0");
     foreach ($re as $ro) {
       $total = 0;
-      $vv = select("t13_vote", "parent=" . $ro['id']);
+      $vv = select("q2t13_vote", "parent=" . $ro['id']);
       foreach ($vv as $son) $total += $son['num'];
       ?>
       <tr>

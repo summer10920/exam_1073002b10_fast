@@ -33,16 +33,16 @@ $main=(empty($_GET['do']))?"main":$_GET['do'];
                 <div style="min-height:400px;">
                 
                 <?php
-$num=count(select("t5_product",1));
+$num=count(select("q4t5_product",1));
 echo '<a href="index.php">全部商品('.$num.')</a>';
-$re=select("t4_class","parent=0");
+$re=select("q4t4_class","parent=0");
 foreach ($re as $ro) {
-        $num=count(select("t5_product","fa=".$ro['id']));
+        $num=count(select("q4t5_product","fa=".$ro['id']));
         echo '<a onmouseover="show('.$ro['id'].')" href="?do=main&fa='.$ro['id'].'">'.$ro['text'].'('.$num.')</a>';
 
-        $re2=select("t4_class","parent=".$ro['id']);
+        $re2=select("q4t4_class","parent=".$ro['id']);
         foreach ($re2 as $ro2) {
-                $num=count(select("t5_product","son=".$ro2['id']));
+                $num=count(select("q4t5_product","son=".$ro2['id']));
                 echo '<a class="son fa'.$ro['id'].'" href="?do=main&fa='.$ro['id'].'&son='.$ro2['id'].'" style="background: #fce2c4">'.$ro2['text'].'('.$num.')</a>';
         }
 }

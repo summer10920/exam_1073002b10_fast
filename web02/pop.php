@@ -9,11 +9,11 @@
 $_GET['id'] = (empty($_GET['id'])) ? 0 : $_GET['id'];
 $nw = (empty($_GET['page'])) ? 1 : $_GET['page'];
 $begin = ($nw - 1) * 5;
-$re = select("t7_blog", "dpy=1 order by num desc");
+$re = select("q2t7_blog", "dpy=1 order by num desc");
 foreach ($re as $ro) {
   $gdbtn = "";
   if (!empty($_SESSION['user'])) {
-    $gd = select("t11_good", "user='" . $_SESSION['user'] . "' and blog=" . $ro['id']);
+    $gd = select("q2t11_good", "user='" . $_SESSION['user'] . "' and blog=" . $ro['id']);
     $gdbtn = ($gd != null) ? '<a href="api.php?do=subgd&id=' . $ro['id'] . '"> - 收回讚</a>' : '<a href="api.php?do=addgd&id=' . $ro['id'] . '"> - 讚</a>';
   }
 ?>
@@ -29,7 +29,7 @@ foreach ($re as $ro) {
 ?>
 </table>
 <?php
-$re = page("t7_blog", "dpy=1", 5, $nw);
+$re = page("q2t7_blog", "dpy=1", 5, $nw);
 foreach ($re as $key => $value) {
   if ($nw == $key) echo '<a style="font-size:2em" href="?do=pop&page=' . $value . '">' . $key . '</a>';
   else echo '<a href="?do=pop&page=' . $value . '">' . $key . '</a>';

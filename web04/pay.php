@@ -1,6 +1,6 @@
 <h3 class="ct">確認資料</h3>
 <?php
-$re = select("t9_user", "id=" . $_SESSION['id']);
+$re = select("q4t9_user", "id=" . $_SESSION['id']);
 $x = $re[0];
 ?>
 姓名: <?= $x['name'] ?><br>
@@ -21,7 +21,7 @@ $x = $re[0];
     <?php
     $total = 0;
     if (!empty($_SESSION['buy'])) foreach ($_SESSION['buy'] as $id => $num) {
-        $re = select("t5_product", "id=" . $id);
+        $re = select("q4t5_product", "id=" . $id);
         $x = $re[0];
         ?>
         <tr bgcolor=#ffc>

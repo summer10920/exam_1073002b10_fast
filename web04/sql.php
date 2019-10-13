@@ -1,6 +1,6 @@
 <?php
 session_start(); //open session
-$db = new PDO("mysql:host=127.0.0.1;dbname=db04;charset=utf8", "root", "", null); //SQL連結PDO物件
+$db = new PDO("mysql:host=127.0.0.1;dbname=b17300_db;charset=utf8", "b17300user", "b17300pwd", null); //SQL連結PDO物件
 date_default_timezone_set('Asia/Taipei'); //更改時區
 //select SQL
 function select($tb, $wh)
@@ -27,9 +27,6 @@ function update($pt, $tb)
   global $db;
   foreach ($pt as $na => $dt) {
     switch ($na) {
-      case 'once':
-        $db->query("UPDATE " . $tb . " SET once='" . $dt . "' WHERE 1");
-        break;
       case 'num+1':
         $db->query("UPDATE " . $tb . " SET num=num+1 WHERE id=" . $dt);
         break;
@@ -93,6 +90,6 @@ $a1=rand(11,99);
 $a2=rand(11,99);
 $ans=$a1+$a2;
 //bot
-$re=select("t11_footer",1);
+$re=select("q4t11_footer",1);
 $bot=$re[0]['once'];
 ?>

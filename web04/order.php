@@ -8,7 +8,7 @@
     <td>下單時間</td>
   </tr>
   <?php
-  $re = select("t8_order", 1);
+  $re = select("q4t8_order", 1);
   foreach ($re as $ro) {
     $seq = date("Ymd000000", strtotime($ro['date'])) + $ro['id'];
     ?>

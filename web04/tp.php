@@ -9,7 +9,7 @@
     <td>操作</td>
   </tr>
   <?php
-  $re = select("t5_product", 1);
+  $re = select("q4t5_product", 1);
   foreach ($re as $ro) {
     ?>
     <tr bgcolor=#ffc>

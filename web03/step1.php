@@ -2,7 +2,7 @@
 <form action="?do=step2" method="post" target="_black">
 電影: <select name="mm" id="sm" onchange="gd()">
 <?php
-$re=select("t7_movie","'".$minday."'<=date and date<='".$today."'");
+$re=select("q3t7_movie","'".$minday."'<=date and date<='".$today."'");
 foreach($re as $ro) echo '<option value="'.$ro['title'].'" '.((!empty($_GET['id'])&&$_GET['id']==$ro['id'])?"selected":"").'>'.$ro['title'].'</option>';
  ?>
 </select>
