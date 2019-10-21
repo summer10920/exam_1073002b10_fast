@@ -8,13 +8,15 @@
 
 >作者：Loki Jiang × 修訂：108/10/09
 
-* 解析教學：[https://b17300.lokiui.com/](https://b17300.lokiui.com/)
+* 本解析主站：[https://b17300.lokiui.com/](https://b17300.lokiui.com/)
 * 程式碼下載：[https://github.com/summer10920/skill-edu_107300_fast/](https://github.com/summer10920/skill-edu_107300_fast/)
 * 完成網站範例：
   * [01-卓越科技大學校園資訊系統](http://b17300demo.lokiui.com/web01/)
   * [02-健康促進網社群平台](http://b17300demo.lokiui.com/web02/)
   * [03-ABC影城](http://b17300demo.lokiui.com/web03/)
   * [04-精品電子商務](http://b17300demo.lokiui.com/web04/)
+
+* 網頁乙級術科試題下載：請連結至 → [[技能檢定中心]](https://techbank.wdasec.gov.tw/owInform/TestReferData.aspx) 取得題目與素材包
 
 ---
 
