@@ -9,7 +9,7 @@
   <?php
   $re = select("q4t9_user", 1);
   foreach ($re as $ro) {
-    ?>
+  ?>
     <tr bgcolor=#ffc>
       <td><?= $ro['id'] ?></a></td>
       <td><?= $ro['acc'] ?></td>
@@ -18,9 +18,8 @@
         <input type="button" value="修改" onclick="<?= jlo('?redo=memmdy&id=' . $ro['id']) ?>">
         <input type="button" value="刪除" onclick="<?= jlo('api.php?do=memdel&id=' . $ro['id']) ?>">
       </td>
-
     </tr>
   <?php
-}
-?>
+  }
+  ?>
 </table>

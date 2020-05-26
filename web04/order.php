@@ -11,11 +11,11 @@
   $re = select("q4t8_order", 1);
   foreach ($re as $ro) {
     $seq = date("Ymd000000", strtotime($ro['date'])) + $ro['id'];
-    ?>
+  ?>
     <tr bgcolor=#ffc>
       <td><a href="?redo=item&id=<?= $ro['id'] ?>"><?= $seq ?></a></td>
       <td><?= $ro['total'] ?></td>
-      <td><?= $ro['user'] ?></td>
+      <td><?= $ro['acc'] ?></td>
       <td><?= $ro['name'] ?></td>
       <td><?= $ro['date'] ?></td>
       <td>
@@ -23,6 +23,6 @@
       </td>
     </tr>
   <?php
-}
-?>
+  }
+  ?>
 </table>

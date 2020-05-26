@@ -1,5 +1,4 @@
 <h3 class="ct">最新消息</h3>
-
 <table bgcolor=#fff width=100%>
   <tr bgcolor=#ff5>
     <td>標題</td>

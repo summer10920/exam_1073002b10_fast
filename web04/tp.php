@@ -11,7 +11,7 @@
   <?php
   $re = select("q4t5_product", 1);
   foreach ($re as $ro) {
-    ?>
+  ?>
     <tr bgcolor=#ffc>
       <td><?= $ro['id'] ?></td>
       <td><?= $ro['title'] ?></td>
@@ -25,6 +25,6 @@
       </td>
     </tr>
   <?php
-}
-?>
+  }
+  ?>
 </table>

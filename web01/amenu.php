@@ -11,24 +11,24 @@
         <td></td>
       </tr>
       <?php
-      $re = select("q1t12_menu","parent=0");
+      $re = select("q1t12_menu", "fa=0");
       foreach ($re as $value) {
-        $many=count(select("q1t12_menu","parent=".$value['id']));
-        ?>
+        $many = count(select("q1t12_menu", "fa=" . $value['id']));
+      ?>
         <tr>
           <td><input style="width:90%" type="text" name="text[<?= $value['id'] ?>]" value="<?= $value['text'] ?>"></td>
           <td><input style="width:90%" type="text" name="link[<?= $value['id'] ?>]" value="<?= $value['link'] ?>"></td>
-          <td><?=$many?></td>
+          <td><?= $many ?></td>
           <td>
-            <input type="hidden" name="dpy[<?=$value['id']?>]" value="0">
-            <input type="checkbox" name="dpy[<?=$value['id']?>]" value="1" <?= ($value['dpy']) ? "checked" : "" ?>>
+            <input type="hidden" name="dpy[<?= $value['id'] ?>]" value="0">
+            <input type="checkbox" name="dpy[<?= $value['id'] ?>]" value="1" <?= ($value['dpy']) ? "checked" : "" ?>>
           </td>
           <td><input type="checkbox" name="del[]" value="<?= $value['id'] ?>"></td>
           <td><input type="button" onclick="op('#cover','#cvr','view.php?do=menuchg&id=<?= $value['id'] ?>')" value="編輯次選單"></td>
         </tr>
       <?php
-    }
-    ?>
+      }
+      ?>
     </tbody>
   </table>
   <table style="margin-top:40px; width:70%;">

@@ -1,5 +1,5 @@
 <?php
-include "sql.php";
+include "lib.php";
 switch ($_GET['do']) {
   case 'adlogin':
     $re = select("q4t10_admin", "acc='" . $_POST['acc'] . "' and pwd='" . $_POST['pwd'] . "'");
@@ -12,28 +12,23 @@ switch ($_GET['do']) {
     unset($_SESSION['admin']);
     plo("index.php");
     break;
-  case 'admainadd':
-    $ary = array(0, 0, 0, 0, 0);
-    foreach ($_POST['cc'] as $key => $value) $ary[$key] = $value;
-    $_POST['access'] = serialize($ary);
-    unset($_POST['cc']);
+  case 'adminadd':
+    $_POST['access'] = serialize($_POST['access']);
     insert($_POST, "q4t10_admin");
     plo("admin.php");
     break;
-  case 'admainmdy':
-    $ary = array(0, 0, 0, 0, 0);
-    foreach ($_POST['cc'] as $key => $value) $ary[$key] = $value;
-    $_POST['access'][$_GET['id']] = serialize($ary);
+  case 'adminmdy':
+    $_POST['access'][$_GET['id']] = serialize($_POST['cc']);
     unset($_POST['cc']);
     update($_POST, "q4t10_admin");
     plo("admin.php");
     break;
-  case 'admaindel':
+  case 'admindel':
     $post['del'][] = $_GET['id'];
     delete($post, "q4t10_admin");
     plo("admin.php");
     break;
-  case 'clsadd':
+  case 'thadd':
     insert($_POST, "q4t4_class");
     plo("admin.php?redo=th");
     break;
@@ -48,16 +43,17 @@ switch ($_GET['do']) {
     break;
   case 'getson':
     $re = select("q4t4_class", "parent=" . $_POST['id']);
-    foreach ($re as $ro) echo '<option value="' . $ro['id'] . '">' . $ro['text'] . '</option>';
+    foreach ($re as $ro) echo '<option value="' . $ro['id'] . '">' . $ro['title'] . '</option>';
     break;
   case 'tpadd':
     $_POST['img'] = addfile($_FILES['img']);
-    insert($_POST, "q4t5_product");
+    $newid = insert($_POST, "q4t5_product");
+    $post['seq'][$newid] = $newid + 100000;
+    update($post, "q4t5_product");
     plo("admin.php?redo=tp");
     break;
   case 'tpmdy':
     $_POST['img'][$_GET['id']] = addfile($_FILES['img']);
-    print_r($_POST);
     update($_POST, "q4t5_product");
     plo("admin.php?redo=tp");
     break;
@@ -103,14 +99,18 @@ switch ($_GET['do']) {
     unset($_SESSION['user']);
     plo("index.php");
     break;
+  case 'cartdel':
+    unset($_SESSION['buy'][$_GET['id']]);
+    plo("index.php?do=buycart");
+    break;
   case 'pay':
     $re = select("q4t9_user", "id=" . $_SESSION['id']);
-    $x = $re[0];
-    $_POST['user'] = $x['acc'];
-    $_POST['name'] = $x['name'];
-    $_POST['tel'] = $x['tel'];
-    $_POST['addr'] = $x['addr'];
-    $_POST['mail'] = $x['mail'];
+    $ro = $re[0];
+    $_POST['acc'] = $ro['acc'];
+    $_POST['name'] = $ro['name'];
+    $_POST['tel'] = $ro['tel'];
+    $_POST['addr'] = $ro['addr'];
+    $_POST['mail'] = $ro['mail'];
     $_POST['total'] = $_GET['total'];
     $_POST['date'] = date("Y-m-d");
     $_POST['buy'] = serialize($_SESSION['buy']);
@@ -125,7 +125,7 @@ switch ($_GET['do']) {
     break;
   case 'memmdy':
     update($_POST, "q4t9_user");
-    plo("admin.php?redo=mem");
+    plo('admin.php?do=admin&redo=mem');
     break;
   case 'memdel':
     $post['del'][] = $_GET['id'];

@@ -3,7 +3,7 @@
   <table width="100%">
     <tbody>
       <tr class="yel">
-        <td width="68%">網站標題</td>
+        <td width="68%">動畫圖片</td>
         <td width="7%">顯示</td>
         <td width="7%">刪除</td>
         <td></td>
@@ -11,19 +11,19 @@
       <?php
       $re = select("q1t5_mvim", 1);
       foreach ($re as $value) {
-        ?>
+      ?>
         <tr>
-          <td><embed src="upload/<?= $value['text'] ?>" width="300"></td>
+          <td><embed src="img/<?= $value['text'] ?>" width="300"></td>
           <td>
-            <input type="hidden" name="dpy[<?=$value['id']?>]" value="0">
-            <input type="checkbox" name="dpy[<?=$value['id']?>]" value="1" <?= ($value['dpy']) ? "checked" : "" ?>>
+            <input type="hidden" name="dpy[<?= $value['id'] ?>]" value="0">
+            <input type="checkbox" name="dpy[<?= $value['id'] ?>]" value="1" <?= ($value['dpy']) ? "checked" : "" ?>>
           </td>
           <td><input type="checkbox" name="del[]" value="<?= $value['id'] ?>"></td>
           <td><input type="button" onclick="op('#cover','#cvr','view.php?do=mvimchg&id=<?= $value['id'] ?>')" value="更換動畫"></td>
         </tr>
       <?php
-    }
-    ?>
+      }
+      ?>
     </tbody>
   </table>
   <table style="margin-top:40px; width:70%;">

@@ -35,13 +35,13 @@ a:hover
 }
 #all
 {
-	padding:2px;
-	width:1020px;
-	height:888px;
-	background:#FFF;
-	margin:10px auto 10px auto;
-	box-shadow:#999 0px 0px 1px .3px;
-	position:relative;
+	padding: 2px;
+	width: 1024px;
+	height: 768px;
+	background: #FFF;
+	margin: 10px auto 10px auto;
+	box-shadow: #999 0px 0px 1px .3px;
+	position: relative;
 }
 #title
 {

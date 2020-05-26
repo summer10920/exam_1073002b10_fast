@@ -10,18 +10,18 @@
       <?php
       $re = select("q1t4_maqe", 1);
       foreach ($re as $value) {
-        ?>
+      ?>
         <tr>
           <td><input style="width:90%" type="text" name="text[<?= $value['id'] ?>]" value="<?= $value['text'] ?>"></td>
           <td>
-            <input type="hidden" name="dpy[<?=$value['id']?>]" value="0">
-            <input type="checkbox" name="dpy[<?=$value['id']?>]" value="1" <?= ($value['dpy']) ? "checked" : "" ?>>
+            <input type="hidden" name="dpy[<?= $value['id'] ?>]" value="0">
+            <input type="checkbox" name="dpy[<?= $value['id'] ?>]" value="1" <?= ($value['dpy']) ? "checked" : "" ?>>
           </td>
           <td><input type="checkbox" name="del[]" value="<?= $value['id'] ?>"></td>
         </tr>
       <?php
-    }
-    ?>
+      }
+      ?>
     </tbody>
   </table>
   <table style="margin-top:40px; width:70%;">

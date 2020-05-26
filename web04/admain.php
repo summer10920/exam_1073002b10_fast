@@ -1,4 +1,4 @@
-<input type="button" value="新增管理員" onclick="<?= jlo('?redo=admainadd') ?>">
+<input type="button" value="新增管理員" onclick="<?= jlo('?redo=adminadd') ?>">
 <table>
   <tr>
     <td>帳號</td>
@@ -13,16 +13,16 @@
   <?php
   $re = select("q4t10_admin", "id!=1");
   foreach ($re as $ro) {
-    ?>
+  ?>
     <tr>
       <td><?= $ro['acc'] ?></td>
       <td><?= $ro['pwd'] ?></td>
       <td>
-        <input type="button" value="修改" onclick="<?= jlo('?redo=admainmdy&id=' . $ro['id']) ?>">
-        <input type="button" value="刪除" onclick="<?= jlo('api.php?do=admaindel&id=' . $ro['id']) ?>">
+        <input type="button" value="修改" onclick="<?= jlo('?redo=adminmdy&id=' . $ro['id']) ?>">
+        <input type="button" value="刪除" onclick="<?= jlo('api.php?do=admindel&id=' . $ro['id']) ?>">
       </td>
     </tr>
   <?php
-}
-?>
+  }
+  ?>
 </table>

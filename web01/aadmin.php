@@ -8,17 +8,17 @@
         <td width="7%">刪除</td>
       </tr>
       <?php
-      $re = select("q1t10_admin","id!=1");
+      $re = select("q1t10_admin", "id!=1");
       foreach ($re as $value) {
-        ?>
+      ?>
         <tr>
           <td><input style="width:90%" type="text" name="acc[<?= $value['id'] ?>]" value="<?= $value['acc'] ?>"></td>
           <td><input style="width:90%" type="password" name="pwd[<?= $value['id'] ?>]" value="<?= $value['pwd'] ?>"></td>
           <td><input type="checkbox" name="del[]" value="<?= $value['id'] ?>"></td>
         </tr>
       <?php
-    }
-    ?>
+      }
+      ?>
     </tbody>
   </table>
   <table style="margin-top:40px; width:70%;">

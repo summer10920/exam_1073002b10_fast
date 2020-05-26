@@ -12,9 +12,9 @@
       $begin = ($nowpage - 1) * 4;
       $re = select("q1t9_news", "1 limit " . $begin . ",4");
       foreach ($re as $value) {
-        ?>
+      ?>
         <tr>
-          <td><textarea name="text[<?=$value['id']?>]" cols="70" rows="3"><?=$value['text']?></textarea></td>
+          <td><textarea name="text[<?= $value['id'] ?>]" cols="70" rows="3"><?= $value['text'] ?></textarea></td>
           <td>
             <input type="hidden" name="dpy[<?= $value['id'] ?>]" value="0">
             <input type="checkbox" name="dpy[<?= $value['id'] ?>]" value="1" <?= ($value['dpy']) ? "checked" : "" ?>>
@@ -22,15 +22,15 @@
           <td><input type="checkbox" name="del[]" value="<?= $value['id'] ?>"></td>
         </tr>
       <?php
-    }
-    ?>
+      }
+      ?>
     </tbody>
   </table>
   <div style="text-align:center;">
     <?php
     $re = navpage("q1t9_news", 1, 4, $nowpage);
     foreach ($re as $key => $value) {
-      echo '<a class="bl" style="font-size:'.(($nowpage==$key)?"60":"30").'px;" href="?do=anews&page=' . $value . '">' . $key . '</a>';
+      echo '<a class="bl" style="font-size:' . (($nowpage == $key) ? "60" : "30") . 'px;" href="?do=anews&page=' . $value . '">' . $key . '</a>';
     }
     ?>
   </div>

@@ -13,9 +13,9 @@
       $begin = ($nowpage - 1) * 3;
       $re = select("q1t6_img", "1 limit " . $begin . ",3");
       foreach ($re as $value) {
-        ?>
+      ?>
         <tr>
-          <td><embed src="upload/<?= $value['text'] ?>" width="100" height="68"></td>
+          <td><embed src="img/<?= $value['text'] ?>" width="100" height="68"></td>
           <td>
             <input type="hidden" name="dpy[<?= $value['id'] ?>]" value="0">
             <input type="checkbox" name="dpy[<?= $value['id'] ?>]" value="1" <?= ($value['dpy']) ? "checked" : "" ?>>
@@ -24,16 +24,15 @@
           <td><input type="button" onclick="op('#cover','#cvr','view.php?do=imagechg&id=<?= $value['id'] ?>')" value="更換圖片"></td>
         </tr>
       <?php
-    }
-    ?>
+      }
+      ?>
     </tbody>
   </table>
   <div style="text-align:center;">
     <?php
     $re = navpage("q1t6_img", 1, 3, $nowpage);
-    foreach ($re as $key => $value) {
-      echo '<a class="bl" style="font-size:'.(($nowpage==$key)?"60":"30").'px;" href="?do=aimage&page=' . $value . '">' . $key . '</a>';
-    }
+    foreach ($re as $key => $value)
+      echo '<a class="bl" style="font-size:' . (($nowpage == $key) ? "60" : "30") . 'px;" href="?do=aimage&page=' . $value . '">' . $key . '</a>';
     ?>
   </div>
   <table style="margin-top:40px; width:70%;">

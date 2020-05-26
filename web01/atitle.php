@@ -12,28 +12,29 @@
       <?php
       $re = select("q1t3_title", 1);
       foreach ($re as $ro) {
-        ?>
+      ?>
         <tr>
-          <td><img src="upload/<?= $ro['img'] ?>" width="300" height="30"></td>
+          <td><img src="img/<?= $ro['img'] ?>" width="300" height="30"></td>
           <td><input type="text" name="text[<?= $ro['id'] ?>]" value="<?= $ro['text'] ?>"></td>
           <td>
-            <input type="hidden" name="dpy[<?=$ro['id']?>]" value="0">
+            <input type="hidden" name="dpy[<?= $ro['id'] ?>]" value="0">
             <input type="radio" name="radio" value="<?= $ro['id'] ?>" <?= ($ro['dpy']) ? "checked" : "" ?>>
           </td>
           <td><input type="checkbox" name="del[]" value="<?= $ro['id'] ?>"></td>
           <td><input type="button" onclick="op('#cover','#cvr','view.php?do=titlechg&id=<?= $ro['id'] ?>')" value="更新圖片"></td>
         </tr>
       <?php
-    }
-    ?>
+      }
+      ?>
     </tbody>
   </table>
   <table style="margin-top:40px; width:70%;">
     <tbody>
       <tr>
-        <td width="200px"><input type="button" onclick="op(&#39;#cover&#39;,&#39;#cvr&#39;,&#39;view.php?do=titleadd&#39;)" value="新增網站標題圖片"></td>
+        <td width="200px"><input type="button" onclick="op('#cover','#cvr','view.php?do=titleadd')" value="新增網站標題圖片"></td>
         <td class="cent"><input type="submit" value="修改確定"><input type="reset" value="重置"></td>
       </tr>
     </tbody>
   </table>
+
 </form>
